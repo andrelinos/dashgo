@@ -1,0 +1,18 @@
+{
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".html",
+      ".jsx",
+      ".tsx"
+    ]
+  },
+
+  //  Define o gerenciador de pacotes padrão
+  "eslint.packageManager": "yarn",
+
+  // Configurações do prettier
+  "prettier.singleQuote": false,
+  "prettier.tabWidth": 4,
+  "prettier.bracketSpacing": true,
+}
