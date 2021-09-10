@@ -20,6 +20,7 @@ import { Sidebar } from '../../components/Sidebar';
 
 export default function UserList(/* { users } */) {
   const [page, setPage] = useState(1);
+
   const {
     data, isLoading, isFetching, error, refetch,
   } = useUsers(page, {

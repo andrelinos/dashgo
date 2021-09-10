@@ -59,7 +59,7 @@ export function makeServer() {
           .slice(pageStart, pageEnd);
 
         return new Response(
-          200,
+          200, // HTTP status code
           { 'x-total-count': String(total) },
           { users },
         );
