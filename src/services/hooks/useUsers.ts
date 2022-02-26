@@ -1,17 +1,17 @@
 import { useQuery, UseQueryOptions } from 'react-query';
 import { api } from '../api';
 
-type User = {
+type UserProps = {
   id: string;
   name: string;
   email: string;
-  createdAt: string;
+  created_at: string | number | Date;
 };
 
 type GetUsersResponse = {
   totalCount: number;
-  users: User[]
-}
+  users: UserProps[];
+};
 
 export async function getUsers(page: number): Promise<GetUsersResponse> {
   const { data, headers } = await api.get('users', {
@@ -21,12 +21,13 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
   });
 
   const totalCount = Number(headers['x-total-count']);
+  console.log(data);
 
-  const users = data.users.map((user) => ({
+  const users = data.users.map((user: UserProps) => ({
     id: user.id,
     name: user.name,
     email: user.email,
-    createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
+    createdAt: new Date(user.created_at).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',
       year: 'numeric',

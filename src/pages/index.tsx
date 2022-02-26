@@ -1,8 +1,6 @@
 import Router from 'next/router';
 
-import {
-  Flex, Stack, Button, Text, Box,
-} from '@chakra-ui/react';
+import { Flex, FormControl, Stack, Button, Text, Box } from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 // import * as yup from 'yup';
@@ -13,7 +11,7 @@ import { Input } from '../components/Form/Input';
 type SignInFormData = {
   email: string;
   password: string;
-}
+};
 
 // const signInFormSchema = yup.object().shape({
 //   email: yup.string().required('E-mail obrigatório...').email('E-mail inválido'),
@@ -27,7 +25,10 @@ export default function SignIn() {
   }
 
   const {
-    register, handleSubmit, formState: { errors }, formState,
+    register,
+    handleSubmit,
+    formState: { errors },
+    formState,
   } = useForm<SignInFormData>({
     // resolver: yupResolver(signInFormSchema),
   });
@@ -57,7 +58,9 @@ export default function SignIn() {
           userSelect="none"
         >
           dashgo
-          <Text as="span" mx="1" color="pink.500">.</Text>
+          <Text as="span" mx="1" color="pink.500">
+            .
+          </Text>
         </Text>
       </Flex>
 
@@ -72,25 +75,31 @@ export default function SignIn() {
         onSubmit={handleSubmit(handleSignIn)}
       >
         <Stack spacing="4" pos="relative">
-          <Input
-            name="email"
-            type="email"
-            label="E-mail"
-            error={errors.email}
-            {...register('email', { required: 'E-mail obrigatório...' })}
-          />
-          <Box pos="absolute" right="3" top="7" color="red.300">
-            <ErrorMessage errors={errors} name="email" />
-          </Box>
-          <Input
-            name="password"
-            type="password"
-            label="Password"
-            error={errors.password}
-            {...register('password', {
-              required: 'Senha obrigatória...',
-            })}
-          />
+          <FormControl>
+            <Input
+              id="username"
+              name="username"
+              type="username"
+              label="username"
+              autoComplete="current-password"
+              error={errors.email}
+              {...register('email', { required: 'E-mail obrigatório...' })}
+            />
+            <Box pos="absolute" right="3" top="7" color="red.300">
+              <ErrorMessage errors={errors} name="email" />
+            </Box>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              label="Password"
+              autoComplete="current-password"
+              error={errors.password}
+              {...register('password', {
+                required: 'Senha obrigatória...',
+              })}
+            />
+          </FormControl>
           <Box pos="absolute" right="3" top="123" color="red.300">
             <ErrorMessage errors={errors} name="password" />
           </Box>
