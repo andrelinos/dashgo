@@ -80,12 +80,13 @@ export default function SignIn() {
               id="username"
               name="username"
               type="username"
-              label="username"
+              label="User"
               autoComplete="current-password"
               error={errors.email}
               {...register('email', { required: 'E-mail obrigatório...' })}
+              mb="6"
             />
-            <Box pos="absolute" right="3" top="7" color="red.300">
+            <Box pos="absolute" right="3" top="45px" color="red.200">
               <ErrorMessage errors={errors} name="email" />
             </Box>
             <Input
@@ -100,16 +101,18 @@ export default function SignIn() {
               })}
             />
           </FormControl>
-          <Box pos="absolute" right="3" top="123" color="red.300">
+          <Box pos="absolute" right="3" top="132px" color="red.200">
             <ErrorMessage errors={errors} name="password" />
           </Box>
         </Stack>
 
         <Button
           type="submit"
-          mt="6"
+          mt="8"
+          h="50px"
           colorScheme="pink"
           isLoading={formState.isSubmitting}
+          boxShadow="0 0 1px 2px rgba(236, 171, 224, 0.558), 0 1px 1px rgba(0, 0, 0, .15)"
         >
           Entrar
         </Button>

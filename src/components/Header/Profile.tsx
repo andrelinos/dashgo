@@ -1,6 +1,4 @@
-import {
-  Flex, Text, Box, Avatar,
-} from '@chakra-ui/react';
+import { Flex, Text, Box, Avatar } from '@chakra-ui/react';
 
 interface ProfileProps {
   showProfileData?: boolean;
@@ -13,12 +11,16 @@ export function Profile({ showProfileData = true }: ProfileProps) {
         <Box mr="4" textAlign="right">
           <Text>Andrelino Silva</Text>
           <Text color="gray.300" fontSize="sm">
-            andrelinodev@dashgo-andrelinos.vercel.app
+            andrelinodev@dashgo.app
           </Text>
         </Box>
       )}
 
-      <Avatar size="md" name="Andrelino Silva" src="https://github.com/andrelinos.png" />
+      <Avatar
+        size="md"
+        name="Andrelino Silva"
+        src="https://github.com/andrelinos.png"
+      />
     </Flex>
   );
 }
